@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مركز الدوري الأردني للمحترفين</title>
+<meta name="description" content="ترتيب الدوري الأردني للمحترفين، الهدافين، صناع الأهداف، ومركز مباراة مباشر — كل شيء بمكان واحد.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-inner">
+    <div class="jo-ribbon">
+      <span class="b1"></span><span class="b2"></span><span class="b3"></span>
+      <span class="tri"></span>
+    </div>
+    <div class="head-titles">
+      <h1>مركز الدوري الأردني للمحترفين</h1>
+      <p class="sub">CFI Pro League · Match Center</p>
+    </div>
+    <div class="live-pill">
+      <span class="live-dot"></span>
+      <span class="txt">تحديث لحظي</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <nav class="tabs-nav">
+    <span class="tab-indicator" id="tabIndicator"></span>
+    <button class="tab-btn" data-tab="standings">الترتيب</button>
+    <button class="tab-btn" data-tab="scorers">الهدافين</button>
+    <button class="tab-btn" data-tab="assists">صناع الأهداف</button>
+    <button class="tab-btn" data-tab="match-center">مركز المباراة</button>
+  </nav>
+
+  <!-- ===================== الترتيب ===================== -->
+  <section id="panel-standings" class="tab-panel">
+    <div id="seasonStatus" class="season-status">جارِ تحميل حالة الموسم…</div>
+
+    <div class="table-card">
+      <div class="table-scroll">
+        <table class="standings">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th class="team-col">الفريق</th>
+              <th>لعب</th>
+              <th>فوز</th>
+              <th>تعادل</th>
+              <th>خسارة</th>
+              <th>له</th>
+              <th>عليه</th>
+              <th>الفارق</th>
+              <th>النقاط</th>
+            </tr>
+          </thead>
+          <tbody id="standingsBody">
+            <tr><td colspan="10" class="empty-state">جارِ تحميل الترتيب…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot gold"></span> صدارة الترتيب</div>
+      <div class="legend-item"><span class="legend-dot red"></span> منطقة الهبوط</div>
+    </div>
+  </section>
+
+  <!-- ===================== الهدافين ===================== -->
+  <section id="panel-scorers" class="tab-panel hidden">
+    <div class="table-card">
+      <div class="table-scroll">
+        <table class="standings">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th class="team-col">اللاعب</th>
+              <th>الفريق</th>
+              <th>الأهداف</th>
+            </tr>
+          </thead>
+          <tbody id="scorersBody">
+            <tr><td colspan="4" class="empty-state">جارِ التحميل…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== صناع الأهداف ===================== -->
+  <section id="panel-assists" class="tab-panel hidden">
+    <div class="table-card">
+      <div class="table-scroll">
+        <table class="standings">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th class="team-col">اللاعب</th>
+              <th>الفريق</th>
+              <th>الصناعات</th>
+            </tr>
+          </thead>
+          <tbody id="assistsBody">
+            <tr><td colspan="4" class="empty-state">جارِ التحميل…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== مركز المباراة ===================== -->
+  <section id="panel-match-center" class="tab-panel hidden">
+    <div class="mc-wrap">
+
+      <div class="mc-scoreboard-card">
+        <div class="scoreboard-wrapper">
+
+          <div class="goal-anim-wrapper" id="goal-anim">
+            <div class="goal-team-bar" id="anim-bar"></div>
+            <span class="goal-anim-text">GOAL!</span>
+            <div class="goal-anim-logo"><img id="anim-logo" src="" alt=""></div>
+          </div>
+
+          <div class="color-bands">
+            <div class="band left" id="home-band">
+              <div class="team-info">
+                <img id="home-logo" class="team-logo" src="" alt="">
+                <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+                  <span class="team-name" id="home-name">—</span>
+                  <div class="stats-counters">
+                    <span><i class="card-icon icon-y"></i><span id="home-yc">0</span></span>
+                    <span><i class="card-icon icon-r"></i><span id="home-rc">0</span></span>
+                  </div>
+                </div>
+              </div>
+              <span class="score-num" id="home-score">0</span>
+            </div>
+
+            <div class="band right" id="away-band">
+              <span class="score-num" id="away-score">0</span>
+              <div class="team-info">
+                <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px;">
+                  <span class="team-name" id="away-name">—</span>
+                  <div class="stats-counters">
+                    <span><i class="card-icon icon-y"></i><span id="away-yc">0</span></span>
+                    <span><i class="card-icon icon-r"></i><span id="away-rc">0</span></span>
+                  </div>
+                </div>
+                <img id="away-logo" class="team-logo" src="" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-panel">
+          <span class="match-phase" id="match-phase">الشوط الأول</span>
+          <span class="match-clock paused" id="match-timer">00:00</span>
+        </div>
+      </div>
+
+      <div class="mc-events-card">
+        <div class="mc-events-title">أحداث المباراة</div>
+        <div class="events-list" id="events-list">
+          <div class="event-item event-item-muted">بدأت المباراة</div>
+        </div>
+      </div>
+
+      <div class="mc-controls">
+        <div class="control-group">
+          <div class="group-title">الفريق المضيف</div>
+          <select id="home-select" class="mc-select"></select>
+          <div class="btn-row">
+            <button class="mc-btn green grow" onclick="mcScoreGoal('home')">⚽ هدف +</button>
+            <button class="mc-btn small" onclick="mcEditScore('home', -1)">تراجع</button>
+          </div>
+          <div class="btn-row">
+            <button class="mc-btn gold small" onclick="mcAddCard('home','yellow',1)">🟨 +1</button>
+            <button class="mc-btn small" onclick="mcAddCard('home','yellow',-1)">-1</button>
+            <button class="mc-btn red small" onclick="mcAddCard('home','red',1)">🟥 +1</button>
+            <button class="mc-btn small" onclick="mcAddCard('home','red',-1)">-1</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="group-title">إدارة المباراة</div>
+          <div class="btn-row">
+            <button class="mc-btn blue" id="btn-timer" onclick="mcToggleTimer()">▶ ابدأ / أوقف</button>
+            <button class="mc-btn" onclick="mcNextPhase()">⏭ المرحلة التالية</button>
+          </div>
+          <button class="mc-btn green full" onclick="mcSaveMatch()">💾 حفظ المباراة</button>
+          <button class="mc-btn red full" onclick="mcResetMatch()">⚠ تصفير المباراة الحالية</button>
+          <p class="mc-note">
+            <button class="link-btn" onclick="mcClearAllHistory()">مسح كل المباريات المحفوظة</button>
+          </p>
+        </div>
+
+        <div class="control-group">
+          <div class="group-title">الفريق الضيف</div>
+          <select id="away-select" class="mc-select"></select>
+          <div class="btn-row">
+            <button class="mc-btn green grow" onclick="mcScoreGoal('away')">⚽ هدف +</button>
+            <button class="mc-btn small" onclick="mcEditScore('away', -1)">تراجع</button>
+          </div>
+          <div class="btn-row">
+            <button class="mc-btn gold small" onclick="mcAddCard('away','yellow',1)">🟨 +1</button>
+            <button class="mc-btn small" onclick="mcAddCard('away','yellow',-1)">-1</button>
+            <button class="mc-btn red small" onclick="mcAddCard('away','red',1)">🟥 +1</button>
+            <button class="mc-btn small" onclick="mcAddCard('away','red',-1)">-1</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="mc-note">المباريات تُحفظ محلياً على متصفحك فقط، وتُحتسب مباشرة ضمن الترتيب والهدافين وصناع الأهداف.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>مصدر بيانات الترتيب الأساسية: الاتحاد الأردني لكرة القدم — jfa.jo</p>
+  <p>تصميم وتطوير <a href="https://momenbanisakher.github.io" target="_blank" rel="noopener">مؤمن بني صخر</a></p>
+</footer>
+
+<script src="assets/store.js"></script>
+<script src="assets/match-center.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
