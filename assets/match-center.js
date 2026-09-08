@@ -169,7 +169,7 @@ function mcSaveMatch() {
     events: mcState.events
   });
 
-  alert('تم حفظ المباراة، وتحدّث الترتيب والهدافين تلقائياً 💾');
+  alert('تم حفظ المباراة محلياً، وتحدّثت جداول الهدافين وصناع الأهداف 💾');
   if (window.refreshAllTables) window.refreshAllTables();
 }
 
@@ -195,7 +195,7 @@ function mcResetMatch() {
 }
 
 function mcClearAllHistory() {
-  if (!confirm('هذا سيمسح كل المباريات المحفوظة على هذا الجهاز (الترتيب والهدافين وصناع الأهداف). متابعة؟')) return;
+  if (!confirm('هذا سيمسح كل المباريات المحفوظة على هذا الجهاز (الهدافين وصناع الأهداف). متابعة؟')) return;
   Store.clearHistory();
   if (window.refreshAllTables) window.refreshAllTables();
   alert('تم مسح كل بيانات المباريات المحفوظة.');

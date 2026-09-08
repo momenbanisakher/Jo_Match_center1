@@ -47,10 +47,10 @@ function renderStandings() {
   }).join('');
 
   const statusEl = document.getElementById('seasonStatus');
-  if (!Store.base.season_started && Store.getMatchHistory().length === 0) {
-    statusEl.innerHTML = `<strong>الموسم ${Store.base.season}</strong> لم ينطلق بعد رسمياً — سجّل مباراة من "مركز المباراة" لترى الترتيب يتحدث لحظياً.`;
+  if (!Store.base.season_started) {
+    statusEl.innerHTML = `<strong>الموسم ${Store.base.season}</strong> لم ينطلق بعد رسمياً حسب مصدر الدوري.`;
   } else {
-    statusEl.innerHTML = `<strong>الموسم ${Store.base.season}</strong> — يشمل الترتيب أي مباريات سجّلتها من مركز المباراة على هذا الجهاز.`;
+    statusEl.innerHTML = `<strong>الموسم ${Store.base.season}</strong> — الترتيب رسمي من مصدر الدوري الحقيقي (${Store.base.source || 'jfa.jo'}).`;
   }
 }
 
